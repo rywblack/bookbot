@@ -1,4 +1,3 @@
-from operator import itemgetter
 def getText():
     with open("books/frankenstein.txt") as f:
         return f.read()
@@ -7,6 +6,10 @@ def getWordCount(text):
     words = text.split()
     wc = len(words)
     return wc
+
+def sort_on(d):
+    print(f"sort on recieved: {d}")
+    return d['value']
 
 def getCharCount(text):
     characters = list(text.lower())
@@ -21,9 +24,9 @@ def getCharCount(text):
         if char.isalpha():
             dictList.append({'name': char, 'value': characterCount[char]})
 
-    sortedDict = sorted(dictList, key=itemgetter('value'), reverse=True)
+    dictList.sort(reverse=True, key=sort_on)
 
-    for d in sortedDict:
+    for d in dictList:
         print(f"The '{d['name']}' character was found {d['value']} times")
 
 def main():
