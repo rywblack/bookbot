@@ -8,7 +8,6 @@ def getWordCount(text):
     return wc
 
 def sort_on(d):
-    print(f"sort on recieved: {d}")
     return d['value']
 
 def getCharCount(text):
